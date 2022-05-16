@@ -1,0 +1,11 @@
+[flake8]
+select = B,B9,BLK,C,E,F,I,S,W
+max-complexity = 10
+# ignore warnings E203 (Whitespace before ‘:'), and W503 (Line break before binary operator)
+# E501 (overridden by Bugbear opinionated B950)
+ignore = E203,E501,W503
+max-line-length = 80
+application-import-names = hyper_pee,tests
+import-order-style = google
+# tell bandit to ignore use of assert in tests
+per-file-ignores = tests/*:S101
