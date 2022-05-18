@@ -12,14 +12,11 @@ def install_with_constraints(session, *args, **kwargs):
             "poetry",
             "export",
             "--dev",
-            "--format=requirements.txt",
             "--without-hashes",
+            "--format=requirements.txt",
             f"--output={requirements.name}",
             external=True,
         )
-        # add --without-hashes for
-        # https://lifesaver.codes/answer/poetry-fails-in-ci-cd-with-error
-        # -in-require-hashes-mode-all-requirements-must-have-their-versions-pinned-3472
         session.install(f"--constraint={requirements.name}", *args, **kwargs)
 
 
